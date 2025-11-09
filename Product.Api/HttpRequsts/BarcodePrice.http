@@ -1,0 +1,37 @@
+@baseUrl = https://localhost:7093/api/BarcodePrice
+@barcode = 554455566
+@branchId = 1
+
+### Create Custom Price
+POST {{baseUrl}}
+Content-Type: application/json
+{
+  "barcode": "{{barcode}}",
+  "branchId": "{{branchId}}",
+  "price": 200.99,
+  "lowistPrice":190
+}
+
+###
+
+### Update Custom Price
+PATCH {{baseUrl}}
+Content-Type: application/json
+
+{
+  "code": "{{barcode}}",
+  "branchId": {{branchId}},
+  "price": 109.50
+}
+
+###
+
+### Delete Custom Price
+DELETE {{baseUrl}}/{{barcode}}/{{branchId}}
+Accept: application/json
+
+###
+
+### Get Price History
+GET {{baseUrl}}/history?code={{barcode}}&branchId={{branchId}}&pageNumber=0&pageSize=10&including=7
+Accept: application/json

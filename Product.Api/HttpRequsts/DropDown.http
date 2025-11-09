@@ -1,0 +1,35 @@
+@baseUrl = https://localhost:7093/api/DropDown
+
+### Get Catagories
+GET {{baseUrl}}/Categories
+Accept: application/json
+
+###
+
+### Get Brands
+GET {{baseUrl}}/Brands
+Accept: application/json
+
+###
+
+### Get Countries
+GET {{baseUrl}}/Countries
+Accept: application/json
+
+###
+
+### Get Taxes
+GET {{baseUrl}}/Taxes?taxType=SubTax
+Accept: application/json
+
+###
+
+### Get Groups
+GET {{baseUrl}}/Groups
+Accept: application/json
+
+
+
+### Get Branchs
+GET {{baseUrl}}/Branchs
+Accept: application/json

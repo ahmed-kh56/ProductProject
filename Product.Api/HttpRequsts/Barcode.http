@@ -1,0 +1,43 @@
+@baseUrl = https://localhost:7093/api/Barcode
+@productId = 3010cd3a-741d-46c0-9c87-9718c121ab77
+@barcode = 554455566
+@defualtBranchId=1
+@branchId=2
+
+### Get Barcodes for a Product
+GET {{baseUrl}}?productId={{productId}}&branchId={{branchId}}
+
+### Create Barcode for Product
+POST {{baseUrl}}/?productId={{productId}}
+Content-Type: application/json
+
+{
+  "code": "1234455622789574850123",
+  "unitId": 1,
+  "unitCost": 80,
+  "unitsCountPerPackage": 6,
+  "profitMargin": 15,
+  "wholesaleProfitMargin": 15,
+  "price": 150,
+  "lowestPriceForSale": 120,
+  "isActive": true,
+  "isAllowedOnline": true,
+  "notes": "no notes "
+}
+
+### Update Barcode
+PUT {{baseUrl}}/{{barcode}}
+Content-Type: application/json
+
+{
+  "isActive": false
+}
+
+### Delete Barcode
+DELETE {{baseUrl}}/{{code}}
+
+### Get Barcode History
+GET {{baseUrl}}/{{barcode}}/History?pageNumber=0&pageSize=10&including=All
+
+### Get Deleted Barcodes History
+GET {{baseUrl}}/History/Deleted

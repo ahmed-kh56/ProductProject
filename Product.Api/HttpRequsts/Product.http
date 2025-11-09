@@ -1,0 +1,73 @@
+﻿@Product.Api_HostAddress = http://localhost:5112
+
+
+
+
+
+@baseUrl = https://localhost:7093/api/Product
+@productId = fabd7638-6bd2-40b4-a7d3-3836a3362182
+@product1Id=b680dffb-f3dd-4315-81c7-9461caf47948
+@SupplayedProduct = 289dc4fd-dc87-417c-a715-80fe939bdd3b
+
+
+
+### Get All Products
+GET {{baseUrl}}
+Accept: application/json
+
+###
+
+### Get Product By Id
+GET {{baseUrl}}/{{productId}}
+Accept: application/json
+
+###
+
+### Create Product
+POST {{baseUrl}}
+Content-Type: application/json
+
+{
+  "name": "Test Product",
+  "englishName": "Test English Name",
+  "isActive": true,
+  "isAllowedOnline": true,
+  "transactionType": 0,
+  "receiptType": 0,
+  "smallestUnitCost": 100,
+  "catagoryId": 2,
+  "brandId": 1,
+  "productGroupId": 3,
+  "countryOfOriginId": 4
+}
+### output b680dffb-f3dd-4315-81c7-9461caf47948
+
+
+
+### Update Product
+PUT {{baseUrl}}/{{product1Id}}
+Content-Type: application/json
+
+{
+  "name": "Updated Product",
+  "englishName": "Updated English Name",
+  "isActive": false
+}
+
+###
+
+### Delete Product
+DELETE {{baseUrl}}/{{productId}}
+Accept: application/json
+
+###
+
+### Get Product History
+GET {{baseUrl}}/history?id={{productId}}&pageNumber=0&pageSize=10&including=All
+Accept: application/json
+
+###
+
+### Get Product Supplayers
+GET https://localhost:7093/api/Product/Supplayers?id={{SupplayedProduct}}
+Accept: application/json
